@@ -12,16 +12,19 @@
 
  Built with NottLimited for the GBoard Morse Keyboard
 *********************************************************************/
+int speedTyper = 300;
+int speedSense = 3;
+
 #include "customKeyboard.h"
 
 //KeyboardKey varName (pin, lowerCase, upperCase, pressSpeed)
 //ModifierKey varName (pin)
 
-KeyboardKey periodKey(A0, 46, 121, 300);
-KeyboardKey hyphonKey(A1, 45, 120, 300);
+KeyboardKey periodKey(A0, 46, 32, speedTyper);
+KeyboardKey hyphonKey(A1, 45, 13, speedTyper);
 
 
-ModifierKey shiftKey(11.......);
+ModifierKey shiftKey(11);
 
 void setup()
 {
@@ -35,7 +38,9 @@ void setup()
 void loop()
 { 
   boolean shiftValue = shiftKey.Check();
-
+  speedTyper = analogRead(A2)/speedSense;
+  Serial.println(speedTyper);
+  
   periodKey.Press(shiftValue);
   hyphonKey.Press(shiftValue);
   

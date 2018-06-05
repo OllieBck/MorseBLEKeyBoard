@@ -73,6 +73,7 @@ class KeyboardKey
     char keyUppercase;
     char keyLowercase;
     int pressSpeed;
+    int keyFirstPress = true;
 
     // logs the last state of the button
     int change = 0;
@@ -99,6 +100,7 @@ class KeyboardKey
       int keyState = digitalRead(keyPin);
       boolean shiftCheck = isShiftPressed;
       int keyValue;
+      pressSpeed = speedTyper;
 
       if (isShiftPressed){
         keyValue = keyUppercase;
@@ -109,15 +111,22 @@ class KeyboardKey
 
       if (keyState == HIGH) {
         if (millis() - lastDebounceTime > debounceDelay) {
+          if (keyFirstPress = false){
+            blehid.keyPress(keyValue);
+            lastDebounceTime = millis();
+          }
           while (digitalRead(keyPin) == HIGH && millis() - lastDebounceTime > debounceDelay) {
             if (millis() - lastDebounceTime > pressSpeed) {
               blehid.keyPress(keyValue);
-              blehid.keyRelease();
               lastDebounceTime = millis();
             }
           }
           lastDebounceTime = millis();
         }
+      }
+      else{
+        blehid.keyRelease();
+        keyFirstPress = true;
       }
     }
 };
