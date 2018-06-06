@@ -20,8 +20,8 @@ int speedSense = 3;
 //KeyboardKey varName (pin, lowerCase, upperCase, pressSpeed)
 //ModifierKey varName (pin)
 
-KeyboardKey periodKey(A0, 46, 32, speedTyper);
-KeyboardKey hyphonKey(A1, 45, 13, speedTyper);
+KeyboardKey periodKey(A0, 46, 120, speedTyper);
+KeyboardKey hyphonKey(A1, 45, 121, speedTyper);
 
 
 ModifierKey shiftKey(11);

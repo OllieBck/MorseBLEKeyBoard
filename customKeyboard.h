@@ -111,13 +111,16 @@ class KeyboardKey
 
       if (keyState == HIGH) {
         if (millis() - lastDebounceTime > debounceDelay) {
-          if (keyFirstPress = false){
+          if (keyFirstPress == true){
             blehid.keyPress(keyValue);
+            blehid.keyRelease();
+            keyFirstPress = false;
             lastDebounceTime = millis();
           }
           while (digitalRead(keyPin) == HIGH && millis() - lastDebounceTime > debounceDelay) {
             if (millis() - lastDebounceTime > pressSpeed) {
               blehid.keyPress(keyValue);
+              blehid.keyRelease();
               lastDebounceTime = millis();
             }
           }
@@ -125,7 +128,6 @@ class KeyboardKey
         }
       }
       else{
-        blehid.keyRelease();
         keyFirstPress = true;
       }
     }
