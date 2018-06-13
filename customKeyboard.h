@@ -67,6 +67,8 @@ void blueToothSetup(void) {
 
 /****************************************************************************/
 
+// 
+
 class KeyboardKey
 {
     int keyPin;      // the number of the button pin
@@ -148,8 +150,6 @@ class ModifierKey
 
     boolean modifierState = false;
 
-    // Constructor - creates a Flasher
-    // and initializes the member variables and state
   public:
     ModifierKey (int pin)
     {

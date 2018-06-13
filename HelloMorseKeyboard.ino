@@ -13,11 +13,11 @@
  Built with NottLimited for the GBoard Morse Keyboard
 *********************************************************************/
 int speedTyper = 300;
-int speedSense = 3;
+int speedSense = 2;
 
 #include "customKeyboard.h"
 
-//KeyboardKey varName (pin, lowerCase, upperCase, pressSpeed)
+//KeyboardKey varName (pin, primary ascii character, alternate ascii character, pressSpeed)
 //ModifierKey varName (pin)
 
 KeyboardKey periodKey(A0, 46, 120, speedTyper);
