@@ -14,11 +14,17 @@ Add the [Adafruit Feather NRF52 Board](https://learn.adafruit.com/bluefruit-nrf5
 
 Clone or download the file.
 
-Unzip the file and rename "HelloMorseKeyboard".
+Unzip the file and rename it to "HelloMorseKeyboard".
 
 Move file into Arduino sketch folder.
 
 Upload the firmware.
+
+# Circuit
+
+Fritzing diagrams are included in this repo to show assembly of the microcontroller with 2 input switches and one toggle switch.  An on/off potentiometer is used to turn the keyboard on/off and change keying speed. 
+
+Currently, the A0 and A1 pins are used for the "dit" and "dah" inputs.  Pin A2 reds the potentiometer.  Pin 11 toggles the output of the "dit" and "dah" inputs.
 
 # Credits
 
